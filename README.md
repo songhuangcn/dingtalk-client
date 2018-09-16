@@ -1,24 +1,29 @@
-# Dingtalk::Robot
+# Dingtalk Client
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/dingtalk/robot`. To experiment with that code, run `bin/console` for an interactive prompt.
+A simple HTTP client wrapper for [Dingtalk](https://open-doc.dingtalk.com/)
 
-TODO: Delete this and the text above, and describe your gem
+[![Gem Version](https://badge.fury.io/rb/dingtalk-client.svg)](https://rubygems.org/gems/dingtalk-client)
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'dingtalk-robot'
+gem 'dingtalk-client'
 ```
 
 And then execute:
 
-    $ bundle
+
+```shell
+$ bundle
+```
 
 Or install it yourself as:
 
-    $ gem install dingtalk-robot
+```shell
+$ gem install dingtalk-client
+```
 
 ## Usage
 
@@ -32,8 +37,8 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/dingtalk-robot. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/pinewong/dingtalk-client. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## Code of Conduct
 
-Everyone interacting in the Dingtalk::Robot project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/dingtalk-robot/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the Dingtalk::Client project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/pinewong/dingtalk-client/blob/master/CODE_OF_CONDUCT.md).

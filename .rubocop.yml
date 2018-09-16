@@ -1,0 +1,16 @@
+AllCops:
+  TargetRubyVersion: 2.5
+Metrics/LineLength:
+  Max: 120
+Metrics/MethodLength:
+  Max: 30 # default * 3
+Metrics/AbcSize:
+  Max: 50 # default * 2
+Metrics/ModuleLength:
+  Exclude:
+    - "**/*_spec.rb"
+Metrics/BlockLength:
+  Exclude:
+    - "**/*_spec.rb"
+Style/BlockDelimiters:
+  EnforcedStyle: braces_for_chaining
