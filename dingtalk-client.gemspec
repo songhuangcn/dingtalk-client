@@ -25,4 +25,6 @@ Gem::Specification.new do |spec|
 
   spec.required_ruby_version = '>= 2.5'
   spec.add_development_dependency 'bundler', '~> 1.16'
+  spec.add_dependency 'activesupport', '~> 5.2.1'
+  spec.add_dependency 'httparty',      '~> 0.16.2'
 end
