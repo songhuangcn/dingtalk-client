@@ -16,7 +16,7 @@ module Dingtalk
       include NotifyFeedcard
       base_uri Dingtalk::Client.config.group_robot_webhook_prefix
       headers  'Content-Type' => 'application/json'
-      logger   ::Logger.new($stdout), :debug, :curl
+      logger   ::Logger.new($stdout), :debug, :curl if Dingtalk::Client.config.is_debugging
     end
   end
 end
