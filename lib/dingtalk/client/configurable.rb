@@ -28,10 +28,12 @@ module Dingtalk
       # @see Configurable
       class Configuration
         attr_writer :group_robot_tokens, :group_robot_webhook_prefix, :template_dir
+        attr_accessor :is_debugging
 
         def initialize
           @group_robot_webhook_prefix = 'https://oapi.dingtalk.com/robot/send?access_token='
           @template_dir               = '.'
+          @is_debugging               = false
         end
 
         def group_robot_tokens
