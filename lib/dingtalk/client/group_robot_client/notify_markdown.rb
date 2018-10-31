@@ -10,7 +10,8 @@ module Dingtalk
         # @option options [String]  template_file (code)  without file suffix
         # @option options [Boolean] is_at_all     (false)
         # @option options [Array]   at_mobiles    ([])
-        def notify_markdown(code, title, **options)
+        # @yield a block which will execute in template locale environment
+        def notify_markdown(code, title, **options, &block)
           options.with_defaults!(
             template_file: code,
             is_at_all: false,
@@ -22,7 +23,7 @@ module Dingtalk
           template_file = String(options[:template_file])
           is_at_all = is_at_all != false
           at_mobiles = Array(at_mobiles)
-          content = get_markdown_content(template_file)
+          content = get_markdown_content(template_file, &block)
           body = get_markdown_body(title, content, is_at_all, at_mobiles)
           notify(token, body)
         end
@@ -30,7 +31,9 @@ module Dingtalk
         private
 
         # @param template_file [String]
-        def get_markdown_content(template_file)
+        # @yield a block which will execute in template locale environment
+        def get_markdown_content(template_file, &block)
+          instance_eval(&block) if block
           path = "#{Dingtalk::Client.config.template_dir}/#{template_file}.markdown.erb"
           ERB.new(File.read(path)).result(binding)
         rescue Errno::ENOENT
