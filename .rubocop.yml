@@ -14,3 +14,5 @@ Metrics/BlockLength:
     - "**/*_spec.rb"
 Style/BlockDelimiters:
   EnforcedStyle: braces_for_chaining
+Style/ModuleFunction:
+  EnforcedStyle: extend_self

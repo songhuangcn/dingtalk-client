@@ -14,5 +14,6 @@ module Dingtalk
     autoload :GroupRobotClient
     include Configurable
     include GroupRobotClient
+    extend self
   end
 end
