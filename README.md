@@ -3,6 +3,8 @@
 A simple HTTP client wrapper for [Dingtalk](https://open-doc.dingtalk.com/)
 
 [![Gem Version](https://badge.fury.io/rb/dingtalk-client.svg)](https://rubygems.org/gems/dingtalk-client)
+[![Build Status](https://travis-ci.org/pinewong/dingtalk-client.svg)](https://travis-ci.org/pinewong/dingtalk-client)
+[![Test Coverage](https://codecov.io/github/pinewong/dingtalk-client/coverage.svg?branch=master)](https://codecov.io/github/pinewong/dingtalk-client?branch=master)
 
 ## Installation
 
@@ -27,7 +29,40 @@ $ gem install dingtalk-client
 
 ## Usage
 
-TODO: Write usage instructions here
+### Group Robot Message
+
+```ruby
+# Config api token and message template directory
+Dingtalk::Client.configure do |config|
+  config.template_dir = '.'
+  config.group_robot_tokens = { order: 'TOKEN' }
+end
+system %q(echo '> <%= @message %>' > order.markdown.erb)
+
+# Notify markdown type message
+Dingtalk::Client.notify_markdown(:order, 'Title') { @message = 'Awesome message' }
+
+# Notify feedcard type
+links = [{ title: 'title1', messageURL: '...', picURL: '...' }, { title: 'title2', messageURL: '...', picURL: '...' }]
+Dingtalk::Client.notify_feedcard(:code, links)
+
+# Notify text type
+Dingtalk::Client.notify_text(:code, 'message')
+
+# Want use instance in exist class?
+class OrderController < ApplicationContrller
+  include Dingtalk::Client
+  
+  def index
+    @message = 'Some message'
+    notify_markdown(:order, 'Title')
+  end
+end
+```
+
+## Help and Docs
+
+* [RDoc](https://www.rubydoc.info/github/pinewong/dingtalk-client)
 
 ## Development
 
