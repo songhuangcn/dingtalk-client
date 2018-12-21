@@ -3,8 +3,10 @@
 A simple HTTP client wrapper for [Dingtalk](https://open-doc.dingtalk.com/)
 
 [![Gem Version](https://badge.fury.io/rb/dingtalk-client.svg)](https://rubygems.org/gems/dingtalk-client)
-[![Build Status](https://travis-ci.org/pinewong/dingtalk-client.svg)](https://travis-ci.org/pinewong/dingtalk-client)
-[![Test Coverage](https://codecov.io/github/pinewong/dingtalk-client/coverage.svg?branch=master)](https://codecov.io/github/pinewong/dingtalk-client?branch=master)
+[![Documentation](https://img.shields.io/badge/docs-YARD-blue.svg)](https://rubydoc.info/gems/dingtalk-client)
+[![Build Status](https://api.travis-ci.org/songhuangcn/dingtalk-client.svg)](https://travis-ci.org/songhuangcn/dingtalk-client)
+[![Test Coverage](https://codecov.io/gh/songhuangcn/dingtalk-client/branch/main/graphs/badge.svg)](https://app.codecov.io/github/songhuangcn/dingtalk-client)
+
 
 ## Installation
 
@@ -44,12 +46,12 @@ Dingtalk::Client.notify_markdown(:order, 'Title') { @message = 'Awesome message'
 
 # Notify feedcard type
 links = [{ title: 'title1', messageURL: '...', picURL: '...' }, { title: 'title2', messageURL: '...', picURL: '...' }]
-Dingtalk::Client.notify_feedcard(:code, links)
+Dingtalk::Client.notify_feedcard(:order, links)
 
 # Notify text type
-Dingtalk::Client.notify_text(:code, 'message')
+Dingtalk::Client.notify_text(:order, 'message')
 
-# Want use instance in exist class?
+# Want use instance variables in exist environment?
 class OrderController < ApplicationContrller
   include Dingtalk::Client
   
@@ -60,20 +62,12 @@ class OrderController < ApplicationContrller
 end
 ```
 
-## Help and Docs
-
-* [RDoc](https://www.rubydoc.info/github/pinewong/dingtalk-client)
-
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
 
 To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
 
-## Contributing
+## License
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/pinewong/dingtalk-client. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
-
-## Code of Conduct
-
-Everyone interacting in the Dingtalk::Client project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/pinewong/dingtalk-client/blob/master/CODE_OF_CONDUCT.md).
+The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
